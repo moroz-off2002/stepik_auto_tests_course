@@ -14,11 +14,9 @@ try:
     browser.get(link)
 
     # говорим Selenium проверять 12 пока цена не уменьшиться до 100$ 
-    button = WebDriverWait(browser, 12).until(
-        EC.text_to_be_present_in_element((By.ID, "price"), "100")
-      )
-    # находим кнопку book и нажимаем
     button = browser.find_element(By.ID, "book")
+    WebDriverWait(browser, 12).until(
+        EC.text_to_be_present_in_element((By.ID, "price"), "100"))
     button.click()
 
     # Ваш код, который заполняет обязательные поля
